@@ -12,10 +12,15 @@ public class MelodiaJFugue {
 
     public void agregarNota(NotaJFugue nota) {
         notas.push(nota);
+        System.out.println("[MelodiaJFugue] Nota agregada" + nota.toString());
     }
 
     public void removerUltimaNota() {
+      if (!notas.empty()) {
         notas.pop();
+      } else {
+        System.out.println("[MelodiaJFugue] No hay notas");
+      }
     }
 
     public void clean() {
