@@ -36,10 +36,11 @@ public class MelodiaJFugue {
 //        notas.stream().reduce(("", (notasStr, nota) -> nota.toString() + notasStr));
 
 //        notas.stream().map(NotaJFugue::toString).join(" ");
-
-        return notas
-                .stream()
-                .map(NotaJFugue::toString)
-                .collect(Collectors.joining(" "));
+        String melodiaString = notas
+                                 .stream()
+                                 .map(NotaJFugue::toString)
+                                 .collect(Collectors.joining(" "));
+        System.out.println("[MelodiaJFugue] Melodia: " + melodiaString);
+        return melodiaString;
     }
 }
