@@ -12,7 +12,7 @@ public class MelodiaJFugue {
 
     public void agregarNota(NotaJFugue nota) {
         notas.push(nota);
-        System.out.println("[MelodiaJFugue] Nota agregada" + nota.toString());
+        System.out.println("[MelodiaJFugue] Nota agregada: " + nota.toString());
     }
 
     public void removerUltimaNota() {
@@ -29,18 +29,26 @@ public class MelodiaJFugue {
 
     @Override
     public String toString() {
-//        StringBuffer str = new StringBuffer();
+        StringBuffer melodiaString = new StringBuffer();
+      for (NotaJFugue nota: notas) {
+        System.out.println("[MelodiaJFugue] Melodia: " + melodiaString);
+        System.out.println("[MelodiaJFugue] Melodia: " + melodiaString);
+        melodiaString.append(nota.getDuracion());
+        melodiaString.append(nota.getNota());
+        melodiaString.append(" ");
+      }
 //        notas.forEach((nota) -> str.append(nota.toString()));
 //        return str.toString();
 
 //        notas.stream().reduce(("", (notasStr, nota) -> nota.toString() + notasStr));
 
 //        notas.stream().map(NotaJFugue::toString).join(" ");
-        String melodiaString = notas
-                                 .stream()
-                                 .map(NotaJFugue::toString)
-                                 .collect(Collectors.joining(" "));
+
+//        String melodiaString = notas
+//                                 .stream()
+//                                 .map(NotaJFugue::toString)
+//                                 .collect(Collectors.joining(" "));
         System.out.println("[MelodiaJFugue] Melodia: " + melodiaString);
-        return melodiaString;
+        return melodiaString.toString();
     }
 }

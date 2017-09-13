@@ -3,14 +3,17 @@ import java.awt.event.MouseListener;
 
 public class PentagramaListener implements MouseListener {
     private NotaJFugue currentNota;
+    private MelodiaPanel melodiaPanel;
 
-    public PentagramaListener(NotaJFugue currentNota) {
+    public PentagramaListener(NotaJFugue currentNota, MelodiaPanel melodiaPanel) {
         this.currentNota = currentNota;
+        this.melodiaPanel = melodiaPanel;
     }
 
     @Override
     public void mouseClicked(MouseEvent e) {
         currentNota.setNota(getNota(e.getY()));
+        melodiaPanel.update();
     }
 
     public String getNota(int coordY) {
@@ -51,8 +54,8 @@ public class PentagramaListener implements MouseListener {
             note = "B";
         }
       System.out.println("[PentagramaListener] Coordenada Y: " + coordY);
-      System.out.println("[PentagramaListener] Nota: " + currentNota.toString());
-        return note;
+      System.out.println("[PentagramaListener] Nota: " + note);
+      return note;
     }
 
     @Override

@@ -24,11 +24,15 @@ public class CompositorFrame extends JFrame {
 
         GridLayout layout = new GridLayout(4,1);
         setLayout(layout);
-
-        getContentPane().add(new PentagramaPanel(currentNota, currentMelodia));
-        getContentPane().add(new DuracionPanel(currentNota, currentMelodia));
-        getContentPane().add(new MelodiaPanel(currentMelodia));
-        getContentPane().add(new ImportPanel());
+  
+      MelodiaPanel melodiaPanel = new MelodiaPanel(currentMelodia);
+      PentagramaPanel pentagramaPanel = new PentagramaPanel(currentNota, currentMelodia, melodiaPanel);
+      DuracionPanel duracionPanel = new DuracionPanel(currentNota, currentMelodia);
+      
+        getContentPane().add(pentagramaPanel);
+        getContentPane().add(duracionPanel);
+        getContentPane().add(melodiaPanel);
+//        getContentPane().add(new ImportPanel());
 
         setVisible(true);
     }

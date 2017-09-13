@@ -1,7 +1,7 @@
 public class NotaJFugue {
     private String nota;
     private String octava;
-    private char duracion;
+    private String duracion;
 
     public NotaJFugue() {
         octava = "5";
@@ -15,11 +15,11 @@ public class NotaJFugue {
         this.nota = nota;
     }
 
-    public char getDuracion() {
+    public String getDuracion() {
         return duracion;
     }
 
-    public void setDuracion(char duracion) {
+    public void setDuracion(String duracion) {
         this.duracion = duracion;
     }
 

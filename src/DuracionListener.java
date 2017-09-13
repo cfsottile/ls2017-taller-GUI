@@ -12,6 +12,7 @@ public class DuracionListener implements MouseListener {
 
     @Override
     public void mouseClicked(MouseEvent e) {
+      
         currentMelodia.agregarNota(currentNota);
         System.out.println("[DuracionListener] Current Nota: " + currentNota.toString());
     }

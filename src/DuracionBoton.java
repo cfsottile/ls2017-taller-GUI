@@ -3,14 +3,15 @@ import java.awt.*;
 
 public class DuracionBoton extends JButton {
     private char representacion;
+    private NotaJFugue currentNota;
 
-    public DuracionBoton(String duracion) {
+    public DuracionBoton(String duracion, NotaJFugue currentNota) {
         ImageIcon img = new ImageIcon("resources/" + duracion + ".png");
         JLabel label = new JLabel("", img, JLabel.CENTER);
         add(label);
-
 //        Image img = Toolkit.getDefaultToolkit().getImage()
-        this.representacion = getRepresentacion(duracion);
+      this.representacion = getRepresentacion(duracion);
+      currentNota.setDuracion(String.valueOf(this.representacion));
     }
 
     private char getRepresentacion(String duracion) {

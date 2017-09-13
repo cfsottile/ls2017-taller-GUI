@@ -1,3 +1,5 @@
+import org.jfugue.player.Player;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
@@ -13,6 +15,7 @@ public class MelodiaPanel extends JPanel {
         setLayout(layout);
 
         melodiaText = new JTextField();
+        JButton play = new PlayButton(melodia);
         JButton clean = new JButton("Clean");
         JButton undo = new JButton("Undo");
 
@@ -31,9 +34,20 @@ public class MelodiaPanel extends JPanel {
                 update();
             }
         });
+        
+        play.addMouseListener(new MouseAdapter() {
+          @Override
+          public void mouseClicked(MouseEvent e) {
+            System.out.println("[PlayButton] play melody: " + melodia.toString());
+            Player player = new Player();
+            player.play(melodia.toString());
+            update();
+          }
+          
+        });
 
         add(melodiaText);
-        add(new PlayButton(melodia));
+        add(play);
         add(clean);
         add(undo);
     }

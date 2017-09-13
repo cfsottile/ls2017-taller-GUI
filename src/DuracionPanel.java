@@ -13,7 +13,7 @@ public class DuracionPanel extends JPanel {
 
         List<DuracionBoton> duraciones = Stream
                 .of("redonda", "blanca", "negra", "corchea", "semicorchea", "fusa", "semifusa")
-                .map(str -> new DuracionBoton(str))
+                .map(str -> new DuracionBoton(str, currentNota))
                 .collect(Collectors.toList());
 
         DuracionListener duracionListener = new DuracionListener(currentNota, currentMelodia);
