@@ -50,8 +50,7 @@ public class PentagramaListener implements MouseListener {
         if (coordY >= section*11 && coordY < section*13) {
             note = "B";
         }
-      System.out.println("[PentagramaListener] Coordenada Y: " + coordY);
-      System.out.println("[PentagramaListener] Nota: " + currentNota.toString());
+
         return note;
     }
 

@@ -1,10 +1,16 @@
 public class NotaJFugue {
     private String nota;
     private String octava;
-    private char duracion;
+    private String duracion;
 
     public NotaJFugue() {
         octava = "5";
+    }
+
+    public NotaJFugue(String nota, String octava, String duracion) {
+        this.nota = nota;
+        this.octava = octava;
+        this.duracion = duracion;
     }
 
     public String getNota() {
@@ -15,12 +21,20 @@ public class NotaJFugue {
         this.nota = nota;
     }
 
-    public char getDuracion() {
+    public String getDuracion() {
         return duracion;
     }
 
-    public void setDuracion(char duracion) {
+    public void setDuracion(String duracion) {
         this.duracion = duracion;
+    }
+
+    public String getOctava() {
+        return octava;
+    }
+
+    public void setOctava(String octava) {
+        this.octava = octava;
     }
 
     @Override

@@ -2,18 +2,19 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 public class DuracionListener implements MouseListener {
-    MelodiaJFugue currentMelodia;
+    MelodiaJFugueDecorator currentMelodia;
     NotaJFugue currentNota;
 
-    public DuracionListener(NotaJFugue currentNota, MelodiaJFugue currentMelodia) {
+    public DuracionListener(NotaJFugue currentNota, MelodiaJFugueDecorator currentMelodia) {
         this.currentNota = currentNota;
         this.currentMelodia = currentMelodia;
     }
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        currentMelodia.agregarNota(currentNota);
-        System.out.println("[DuracionListener] Current Nota: " + currentNota.toString());
+        currentNota.setDuracion(((DuracionBoton) e.getComponent()).getRepresentacion());
+        currentMelodia.agregarNota(
+                new NotaJFugue(currentNota.getNota(),currentNota.getOctava(), currentNota.getDuracion()));
     }
 
     @Override

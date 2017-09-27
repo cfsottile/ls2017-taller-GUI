@@ -5,7 +5,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class DuracionPanel extends JPanel {
-    public DuracionPanel(NotaJFugue currentNota, MelodiaJFugue currentMelodia) {
+    public DuracionPanel(NotaJFugue currentNota, MelodiaJFugueDecorator currentMelodia) {
 //        GridLayout layout = new GridLayout(1,8);
 //        setLayout(layout);
 

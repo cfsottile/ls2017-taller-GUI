@@ -1,14 +1,20 @@
+import org.jfugue.player.Player;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 public class MelodiaPanel extends JPanel {
-    private MelodiaJFugue melodia;
+    private MelodiaJFugueDecorator melodia;
     private JTextField melodiaText;
+    private Player player;
 
-    public MelodiaPanel(MelodiaJFugue melodia) {
+    public MelodiaPanel(MelodiaJFugueDecorator melodia) {
         this.melodia = melodia;
+        melodia.subscribe(this);
+        player = new Player();
+
         GridLayout layout = new GridLayout(1,4);
         setLayout(layout);
 
@@ -33,7 +39,16 @@ public class MelodiaPanel extends JPanel {
         });
 
         add(melodiaText);
-        add(new PlayButton(melodia));
+
+        JButton playButton = new JButton("Play");
+        playButton.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                player.play(melodiaText.getText());
+            }
+        });
+        add(playButton);
+
         add(clean);
         add(undo);
     }

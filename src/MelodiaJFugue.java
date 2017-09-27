@@ -1,5 +1,4 @@
-import java.util.ArrayList;
-import java.util.List;
+
 import java.util.Stack;
 import java.util.stream.Collectors;
 
@@ -12,15 +11,12 @@ public class MelodiaJFugue {
 
     public void agregarNota(NotaJFugue nota) {
         notas.push(nota);
-        System.out.println("[MelodiaJFugue] Nota agregada" + nota.toString());
     }
 
     public void removerUltimaNota() {
-      if (!notas.empty()) {
-        notas.pop();
-      } else {
-        System.out.println("[MelodiaJFugue] No hay notas");
-      }
+        if (!notas.empty()) {
+            notas.pop();
+        }
     }
 
     public void clean() {
@@ -40,7 +36,6 @@ public class MelodiaJFugue {
                                  .stream()
                                  .map(NotaJFugue::toString)
                                  .collect(Collectors.joining(" "));
-        System.out.println("[MelodiaJFugue] Melodia: " + melodiaString);
         return melodiaString;
     }
 }

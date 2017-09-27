@@ -7,14 +7,14 @@ import java.awt.event.WindowEvent;
 
 public class CompositorFrame extends JFrame {
     NotaJFugue currentNota;
-    MelodiaJFugue currentMelodia;
+    MelodiaJFugueDecorator currentMelodia;
 
     public CompositorFrame() {
         currentNota = new NotaJFugue();
-        currentMelodia = new MelodiaJFugue();
+        currentMelodia = new MelodiaJFugueDecorator(new MelodiaJFugue());
 
         setTitle("CoMpOsItOr");
-        setSize(800,600);
+        setSize(800,700);
 
         addWindowListener(new WindowAdapter() {
             public void windowClosing(WindowEvent windowEvent){
@@ -22,13 +22,21 @@ public class CompositorFrame extends JFrame {
             }
         });
 
-        GridLayout layout = new GridLayout(4,1);
+        GridLayout layout = new GridLayout(2,1);
         setLayout(layout);
 
-        getContentPane().add(new PentagramaPanel(currentNota, currentMelodia));
-        getContentPane().add(new DuracionPanel(currentNota, currentMelodia));
-        getContentPane().add(new MelodiaPanel(currentMelodia));
-        getContentPane().add(new ImportPanel());
+        JPanel panel1 = new JPanel();
+        panel1.setLayout(new GridBagLayout());
+        panel1.add(new PentagramaPanel(currentNota, currentMelodia));
+        panel1.add(new DuracionPanel(currentNota, currentMelodia));
+
+        JPanel panel2 = new JPanel();
+        panel2.setLayout(new GridLayout(2,1));
+        panel2.add(new MelodiaPanel(currentMelodia));
+        panel2.add(new ImportPanel());
+
+        getContentPane().add(panel1);
+        getContentPane().add(panel2);
 
         setVisible(true);
     }
